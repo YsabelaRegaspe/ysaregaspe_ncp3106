@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+@font-face {
+  font-family: font9;
+  src: url(font9.ttf);
+}
+
+@font-face {
+  font-family: font10;
+  src: url(font10.ttf);
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden; 
+    margin: 0 auto;
+    padding: 0;
+}
+
+.custom-carousel-container {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    right: 50px;
+    bottom: 50px;
+    overflow: hidden; 
+}
+
+.custom-carousel-container .carousel-inner {
+    display: flex;
+}
+ 
+.custom-carousel-container .carousel-item img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.custom-caption {
+    position: absolute; 
+}
+
+.custom-carousel-caption {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.carousel-text-container {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    width: calc(100% - 20px); 
+    z-index: 10; 
+}
+
+.carousel-text-container .carousel-text-item {
+    display: none; 
+}
+.carousel-text-container .carousel-text-item.active {
+    display: block; 
+    top: 10px;
+    left: 10px;
+}
+
+.carousel-control {
+    width: 5%;
+    color: #625e39;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    display: none;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    position: absolute;
+    color: #625e39;
+    top: 60%;
+    transform: translateY(-50%);
+    z-index: 10;
+    height: auto; 
+    width:2%;
+}
+
+.carousel-control-prev {
+    background-image: url("leftArrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    left: 10px; 
+}
+
+.carousel-control-next {
+    background-image: url("rightArrow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    right: 10px; 
+}
+
+.contact-form {
+            position: absolute;
+            width: 400px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .input-container {
+            position: absolute;
+            width: 100%; 
+            outline: none;
+
+            margin-bottom: 30px; 
+        }
+        .input-container label {
+            position: absolute;
+            font-size: 14px;
+            color:#fff7fa;
+            pointer-events: none;
+            transition: all 0.2s ease;
+        }
+        .input-container input[type="text"],
+        .input-container input[type="email"],
+        .input-container textarea {
+            position: absolute; 
+            width: 100%;
+            outline: none;
+            color: #fff7fa;
+            border: none;
+            border-bottom: 1px solid #fff7fa;
+            padding: 10px 0;
+            background: transparent;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .input-container input[type="text"]:focus + label,
+        .input-container input[type="text"]:not(:placeholder-shown) + label,
+        .input-container input[type="email"]:focus + label,
+        .input-container input[type="email"]:not(:placeholder-shown) + label,
+        .input-container textarea:focus + label,
+        .input-container textarea:not(:placeholder-shown) + label {
+            top: -20px; 
+            font-size: 12px;
+            color:#aaa252;
+        }
+        
+        #name-container label { top: 50px; left: -700px; }
+        #email-container label { top: 50px; left: -400px; }
+        #subject-container label { top: 110px; left: -700px; }
+        #message-container label { top: 170px; left: -700px; }
+        
+        
+        #name { top: 55px; left: -700px; width: 70%;}
+        #email { top: 55px; left: -400px; width: 70%;}
+        #subject { top: 115px; left: -700px; width: 145%;}
+        #message { top: 175px; left: -700px; height: 70px; width: 145%; }
+        
+        .contact-form input[type="submit"] {
+            position: absolute;
+            top: 280px;
+            left: -680px;
+            width: 70%;
+            background-color: #fff7fa;
+            border: 1px solid #fff7fa;
+            color: #625e39;
+            font-size: 16px;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+        .contact-form input[type="submit"]:hover {
+            background-color: #f0f0f0;
+        }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    scroll-behavior: smooth;
+}
+
+.background-section {
+  height: 100vh;
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+  flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color:#625e39;
+}
+
+.section1 {
+  background-image: url("background2.png");
+}
+
+.section2 {
+  background-image: url("rectangle2.png");
+}
+
+.section3 {
+  background-image: url("rectangle1.png");
+}
+
+.section4 {
+    background-image: url("rectangle2.png");
+}
+
+.section5 {
+    background-image: url("background3.png");
+}
+
+.me1 {
+    position: absolute;
+    top: 120px;
+    left: 50px;
+}
+
+.me2 {
+    position: absolute;
+    top: 140px;
+    right: 110px;
+}
+
+.name1 {
+    position: absolute;
+    font-family: font9;
+    font-size: 75px;
+    text-align: left;
+    color: #625e39;
+    top: 260px;
+    left: 520px;
+    line-height: 1;
+}
+
+.text1 {
+    position: absolute;
+    font-family: font10;
+    font-size: 25px;
+    color: #625e39;
+    top: 215px;
+    left: 520px;
+}
+
+.text2 {
+    position: absolute;
+    font-family: font10;
+    font-size: 25px;
+    color: #625e39;
+    top: 430px;
+    left: 635px;
+}
+
+.line1 {
+    position: absolute;
+    top: 437px;
+    left: 520px;
+}
+
+.line2 {
+    position: absolute;
+    top: 110px;
+    left: 200px;
+    transition: left 0.3s ease;
+}
+
+
+.nav1, .nav2, .nav3, .nav4, .nav5 {
+    position: absolute;
+    font-family: font10;
+    font-size: 17px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: #625e39;
+    top: 15px;
+}
+
+.nav1 { left: 500px; }
+.nav2 { left: 700px; }
+.nav3 { left: 900px; }
+.nav4 { left: 1100px; }
+.nav5 { left: 1300px; }
+
+
+.knowmore1 {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    top: 530px;
+    left: 520px;
+}
+
+.view1 {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    top: 370px;
+}
+
+.view2 {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    top: 460px;
+    left: 50px;
+}
+
+.about1 {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: font10;
+    color: #fff7fa;
+    font-size: 20px;
+    top: 90px;
+    left: 200px;
+}
+
+.skills1 {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-family: font10;
+    color: #fff7fa;
+    font-size: 20px;
+    top: 90px;
+    left: 450px;
+}
+
+.download1 {
+    position: absolute;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    bottom: 40px;
+    right: 80px;
+}
+
+.text3 {
+    position: absolute;
+    font-family: font9;
+    font-size: 45px;
+    top: 200px;
+    left: 50px;
+    display: block; 
+}
+
+.text4 {
+    position: absolute;
+    font-family: font10;
+    font-size: 18px;
+    text-align: left;
+    top: 290px;
+    left: 50px;
+    display: block; 
+}
+
+.text5 {
+    position: absolute;
+    font-family: font10;
+    font-size: 18px;
+    text-align: left;
+    top: 210px;
+    left: 50px;
+    display: none; 
+}
+
+.text6 {
+    position: absolute;
+    text-align: left;
+    font-family: font9;
+    font-size: 50px;
+    color: #625e39;
+    line-height: 1;
+}
+
+.text7 {
+    position: absolute;
+    font-family: font10;
+    text-align: left;
+    font-size: 20px;
+    color: #625e39;
+}
+
+.text8 {
+    position: absolute;
+    font-family: font9;
+    font-size: 20px;
+    top: 10px;
+    left: 10px;
+}
+
+.game {
+    position: absolute;
+    top: 50px;
+    right: 65px;
+}
+
+.gameLabel {
+    position: absolute;
+    top: 80px;
+    left: 30px;
+    color: #625e39;
+    font-family: font9;
+    font-size: 50px;
+}
+
+.gameDescripion {
+    position: absolute;
+    text-align: left;
+    top: 160px;
+    left: 56px;
+    color: #625e39;
+    font-family: font10;
+    font-size: 17px;
+}
+
+.gallery1 {
+    display: none;
+}
+
+.galleryLabel {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    font-family: font9;
+    font-size: 15px;
+    color: #625e39;
+}
+
+.galleryImage {
+    position: absolute;
+    top: 130px;
+    left: 60px;
+}
+
+.contacts {
+    position: absolute;
+    font-family: font10;
+    font-size: 15px;
+    color: #fff7fa;
+    text-align: center;
+    top: 230px;
+    left: 130px;
+}
+
+.descriptionButton {
+    position: absolute;
+    top: 5px;
+    left: 80px;
+    font-family: font10;
+    font-size: 20px;
+    color: #625e39;
+}
+
+.galleryButton {
+    position: absolute;
+    top: 5px;
+    left: 300px;
+    font-family: font10;
+    font-size: 20px;
+    color: #625e39;
+}
+
+.rectangleLabel {
+    position: absolute;
+    top: 0px;
+    left: 40px;
+    transition: left 0.3s ease;
+}
+
+.button {
+    position: absolute;
+    top: 250px;
+    right: 70px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="background-section section1">
+    <button class="nav1">HOME</button>
+    <button class="nav2"><a href="#section2">ABOUT</a></button>
+    <button class="nav3"><a href="#section3">RESUME</a></button>
+    <button class="nav4"><a href="#section4">WORKS</a></button>
+    <button class="nav5"><a href="#section5">CONTACT</a></button>
+
+    <div class="me1">
+        <img src="ysa1.png" width="450px">
+    </div>
+    <div class="text1">My name is</div>
+    <div class="name1">MARIELLE YSABELA <br> A. REGASPE</div>
+    <div class="line1">
+        <img src="rectangle2.png" width="100px" height="1px">
+    </div>
+    <div class="text2">Computer Engineer</div>
+    <div>
+        <a href="#section2" class="knowmore1">
+            <img src="knowmore1.png" width="125px"></a>
+    </div>
+</div>
+
+<div class="background-section section2" id="section2">
+    <button class="about1" onclick="showAbout()">
+        ABOUT
+    </button>
+    <button class="skills1" onclick="showSkills()">
+        SKILLS
+    </button>
+    <div class="line2">
+        <img src="rectangle1.png" width="75px" height="2px">
+    </div>
+    <div class="me2">
+        <img src="ysa3.JPG" width="400px">
+    </div>
+    <div class="text3">
+        HI THERE! I'M YSA
+    </div>
+    <div class="text4">
+        <p>As a third-year Computer Engineering student, I've immersed myself in the world of software design, <br>
+        embedded systems, game development, and web creation. My academic journey has equipped me with the <br>
+        skills to design efficient software, create interactive games, and build responsive websites. My passion <br>
+        for embedded systems has deepened my understanding of the synergy between hardware and software, <br> 
+        fueling my desire to innovate. <br> <br>
+        </p>
+        <p>Balancing my studies with responsibilities in my family business has strengthened my time management <br>
+            and problem-solving abilities. This experience has prepared me for the challenges of the tech industry, <br>
+            where I am eager to apply my skills and contribute to advancements that will shape the future of technology. <br>
+        </p>
+        <button class="view1">
+            <a href="#section4"><img src="viewWorks.png" style="height: 40px;"></a>
+        </button>
+    </div>
+    <div class="text5">
+        <p>I have developed a well-rounded skill set that includes software design, embedded systems, game development, <br>
+            and web creation. My experience spans various programming languages and tools, enabling me to tackle complex <br>
+            projects. I am also adept at managing time, solving problems, and collaborating effectively within teams. <br> <br>
+        </p>
+
+        <p > &ensp; &ensp; <strong>PROGRAMMING LANGUAGES: </strong> Proficient in C++, Python, CSS, and Java. <br> <br>
+            &ensp; &ensp; <strong>SOFTWARE DESIGN: </strong> Experienced in designing and implementing efficient and scalable software solutions. <br> <br>
+            &ensp; &ensp; <strong>EMBEDDED SYSTEMS: </strong> Strong understanding of microcontrollers and hardware-software integration. <br> <br>
+            &ensp; &ensp; <strong>GAME DEVELOPMENT: </strong> Capable of creating interactive games using engines like Unity. <br> <br>
+            &ensp; &ensp; <strong>PROJECT MANAGEMENT: </strong> Effective in managing projects, prioritizing tasks, and meeting deadlines. <br> <br>
+            &ensp; &ensp; <strong>TEAM COLLABORATION: </strong> Experienced in working within teams and leading groups in university organizations. <br> <br>
+        </p>
+        <button class="view1" style="top: 470px; left: 570px;">
+            <a href="#section3"><img src="seeMore.png" style="height: 40px;"></a>
+        </button>
+    </div>
+</div>
+
+<div class="background-section section3" id="section3">
+
+    
+   <div class="text6" style="top: 40px; left: 50px;" >EDUCATIONAL <br> BACKGROUND</div>
+
+            <div class="text7" style="top: 170px; left: 100px;" >2022-2024</div>
+
+            <div class="text7" style="top: 170px; left: 220px; text-align: left;">
+                <strong>University of the East</strong><br>Bachelor of Science in Computer<br> Engineering</div>
+
+            <div class="text7" style="top: 280px; left: 100px;" >2020-2022</div>
+
+            <div class="text7" style="top: 280px; left: 220px; text-align: left;">
+                <strong>Centro Escolar University</strong><br>Senior High Level</div>
+        
+            <div class="text7" style="top: 360px; left: 100px;" >2010-2022</div>
+
+            <div class="text7" style="top: 360px; left: 220px; text-align: left;">
+                <strong>St. Bridget School, QC</strong><br>Junior High Level <br>Intermediate Level<br>Elementary Level</div>
+
+
+   <div class="text6" style="top: 40px; left: 550px;">CERTIFICATES <br> RECEIVED</div>
+
+            <div class="text7" style="top: 170px; left: 580px;" >Apr 2024</div>
+
+            <div class="text7" style="top: 170px; left: 700px; text-align: left;">
+                <strong>Code Crash: Python Programming<br> Challenge</strong></div>
+
+            <div class="text7" style="top: 260px; left: 580px;" >Feb 2024</div>
+
+            <div class="text7" style="top: 260px; left: 700px; text-align: left;">
+                <strong>Welcome to Flutterverse: A Hands<br>
+                    -On Introduction to Cross-Platform <br>Mobile App Development Workshop</strong></div>
+
+            <div class="text7" style="top: 380px; left: 580px;" >Sept 2023</div>
+
+            <div class="text7" style="top: 380px; left: 700px; text-align: left;">
+                <strong>FIGMA 101: An Introductory UI<br> Workshop for Beginners</strong></div>
+
+            <div class="text7" style="top: 460px; left: 580px;" >Sept 2022</div>
+
+            <div class="text7" style="top: 460px; left: 700px; text-align: left;">
+                <strong>GIT Workshop for Beginners</strong></div>
+
+            <div class="text7" style="top: 520px; left: 580px;" >Mar 2022</div>
+
+            <div class="text7" style="top: 520px; left: 700px; text-align: left;">
+                <strong>Tinkercad + Arduino for Beginners</strong></div>
+
+    <div class="text6" style="top: 40px; left: 1030px;" >RECOGNITIONS <br> RECEIVED</div>
+            <div class="text7" style="top: 170px; left: 1130px;" >2022-2023</div>
+
+            <div class="text7" style="top: 170px; left: 1250px; text-align: left;">
+                <strong>College Scholar</strong><br>University of the East</div>
+
+            <div class="text7" style="top: 250px; left: 1130px;" >2016-2020</div>
+
+            <div class="text7" style="top: 250px; left: 1250px; text-align: left;">
+                    <strong>With Honors</strong><br>St. Bridget School, QC</div>
+
+                    
+
+    <button class="download1">
+        <a href="Regaspe CV.pdf"><img src="download1.png" width="160px"></a>
+    </button>        
+</div>
+
+<div class="background-section section4" id="section4">
+    <div class="custom-carousel-container">
+        <div id="myCarousel" class="carousel slide" data-bs-ride="false">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="rectangle1.png" class="d-block w-100" alt="Image 1">
+                    <img src="rectangle2.png" class="rectangleLabel" style="width: 200px; height: 40px;">
+
+                    <div class="description1">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)"
+                        style="color: #fff7fa;">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)">GALLERY</button>
+
+                    <div><img src="game1.png" class="game" style="height: 500px; width: 300px;"></div>
+                    <div class="gameLabel">GUESSING GAME</div>
+                    <div class="gameDescripion">
+                        <p style="font-size: 20px;"><strong>Game Description: </strong><br></p>
+
+                        <p>In this exciting guessing game, three random numbers will be generated secretly, and it's up to you <br>
+                            to guess them correctly! You will type in your guesses for the three numbers, each in the correct <br>
+                            position. Once you're confident in your choices, click the "Release" button to reveal the hidden numbers. <br>
+                            
+                            <br>The game rewards you based on how many of your guesses match the secret numbers exactly. In this <br>
+                            game, your reward depends on how accurately your guesses match the secret numbers. If none of your <br>
+                            guesses align with the secret numbers, you'll receive the message "No correct guesses" and won't win<br>
+                            a prize. However, if one of your numbers is correct and in the right position, you’ll earn P500.00. <br>
+                            Matching two numbers in their exact positions wins you P5,000.00. Finally, if all three of your guesses <br>
+                            are spot on, you’ll take home the grand prize of P50,000.00! <br>
+                            </p>
+                    </div>
+                    </div>
+
+                    <div class="gallery1">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)"
+                    style="color: #fff7fa;">GALLERY</button>
+
+                        <div class="galleryLabel">
+                            <h1>Main Page</h1>
+                        </div>
+                        <div class="galleryImage">
+                            <img src="game1_1.png" style="width: 250px;">
+                        </div>
+                        <div class="galleryLabel" style="left: 440px;">
+                            <h1>Sample Page</h1>
+                        </div>
+                        <div class="galleryImage" style="left: 430px;">
+                            <img src="game1_2.png" style="width: 250px;">
+                            <img src="game1_3.png" style="width: 250px;">
+                            <img src="game1_4.png" style="width: 250px;">
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="rectangle1.png" class="d-block w-100" alt="Image 2">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)">GALLERY</button>
+                    <img src="rectangle2.png" class="rectangleLabel" style="width: 200px; height: 40px;">
+
+                    <div class="description1">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)"
+                        style="color: #fff7fa;">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)">GALLERY</button>
+
+                    <div><img src="game2.png" class="game" style="height: 500px; width: 300px;"></div>
+                    <div class="gameLabel">JACK EN POY</div>
+                    <div class="gameDescripion">
+                        <p style="font-size: 20px;"><strong>Game Description:</strong><br></p>
+                        <p>Get ready to play "Jack en Poy," the classic game of rock, paper, scissors with a twist! In this game, <br> 
+                            you'll be presented with five buttons: rock, paper, scissors, reveal, and new game. <br><br>
+
+                            The game secretly generates its own pick—either rock, paper, or scissors—but won't reveal it right away.  <br>
+                            Your task is to choose between rock, paper, and scissors by clicking the corresponding button. After making <br>
+                            your choice, click the "Reveal" button to see what your opponent has picked. <br>  <br>
+                            
+                            The outcome will be instantly displayed, letting you know if you've won or lost the round. If you want to  <br>
+                            play again, simply click the "New Game" button to start fresh and take another shot at victory! <br>
+                            </p>
+                    </div>
+                
+                    
+                    </div>
+
+                    <div class="gallery1">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)"
+                    style="color: #fff7fa;">GALLERY</button>
+
+                        <div class="galleryLabel">
+                            <h1>Main Page</h1>
+                        </div>
+                        <div class="galleryImage">
+                            <img src="game2_1.png" style="width: 470px;">
+                        </div>
+                        <div class="galleryLabel" style="left: 550px;">
+                            <h1>Sample Page</h1>
+                        </div>
+                        <div class="galleryImage" style="left: 550px;">
+                            <img src="game2_2.png" style="width: 330px;">
+                            <img src="game2_3.png" style="width: 330px;">
+                            <img src="game2_4.png" style="position: absolute; width: 330px; top: 190px; left: 0px;">
+                        </div>
+                        
+                        
+                    </div>
+
+                </div>
+                <div class="carousel-item">
+                    <img src="rectangle1.png" class="d-block w-100" alt="Image 3">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)">GALLERY</button>
+                    <img src="rectangle2.png" class="rectangleLabel" style="width: 200px; height: 40px;">
+
+                    <div class="description1">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)"
+                        style="color: #fff7fa;">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)">GALLERY</button>
+
+                    <div><img src="game3.png" class="game" style="height: 500px; width: 300px;"></div>
+                    <div class="gameLabel">IN-BETWEEN GAME</div>
+                    <div class="gameDescripion">
+                        <p style="font-size: 20px;"><strong>Game Description: </strong><br></p>
+                        <p>Welcome to the thrilling "In-Between Game," a test of your luck and decision-making. Start by choosing <br>
+                            your number of rounds—3, 5, or 10—which determines your starting money. After selecting, the game deals <br>
+                            two cards, and you must place a bet before deciding whether to go with "Deal" or "No Deal." If the cards <br>
+                            are not identical, choosing "Deal" means you'll win if the third card falls between the first two, while <br>
+                            "No Deal" forfeits 10% of your money without further risk. When faced with identical cards, you'll need to <br>
+                            decide if the third card will be higher or lower. <br><br>
+                            
+                            Match all three cards, and you hit the JACKPOT, tripling your bet! Ready to test your luck? Click "New Game" <br>
+                            and see if you can beat the odds! Each decision you make could bring you closer to victory, or you might have<br>
+                            to make tough choices to hold on to your money. Play smart, and you might just walk away with a big win!<br></p>
+                        </div>
+                       
+                        
+                    </div>
+
+                    <div class="gallery1">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)"
+                        style="color: #fff7fa;">GALLERY</button>
+
+                        <div class="galleryLabel">
+                            <h1>Main Page</h1>
+                        </div>
+                        <div class="galleryImage">
+                            <img src="game3_1.png" style="width: 470px;">
+                        </div>
+                        <div class="galleryLabel" style="left: 550px;">
+                            <h1>Sample Page</h1>
+                        </div>
+                        <div class="galleryImage" style="left: 570px;">
+                            <img src="game3_2.png" style="width: 330px;">
+                            <img src="game3_3.png" style="width: 330px;">
+                            <img src="game3_4.png" style="position: absolute; width: 330px; top: 220px; left: 0px;">
+                            <img src="game3_5.png" style="position: absolute; width: 330px; top: 220px; left: 335px;">
+                        </div>
+                        
+                    </div>
+
+                </div>
+                <div class="carousel-item">
+                    <img src="rectangle1.png" class="d-block w-100" alt="Image 4">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)">GALLERY</button>
+                    <img src="rectangle2.png" class="rectangleLabel" style="width: 200px; height: 40px;">
+
+                    <div class="description1">
+                    <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)"
+                        style="color: #fff7fa;">DESCRIPTION</div>
+                    <button class="galleryButton view2 viewGallery" onclick="showGallery(event)">GALLERY</button>
+
+                    <div><img src="game4.png" class="game" style="height: 500px; width: 300px;"></div>
+                    <div class="gameLabel">RESCUE RANGERS</div>
+                    <div class="gameDescripion">
+                        <p style="font-size: 20px;"><strong>Game Description: </strong><br></p>
+                        <p>In this engaging game for kids, you'll dive into a delightful world where all the characters are lovable <br>
+                            pups. Start by choosing a round from spelling, colors, numbers, or shapes, tailoring the challenge to your <br>
+                            interests. Next, select your favorite pup to guide you through the game. As you play, you'll need to click <br>
+                            on the correct answers to a series of questions to help your pup advance towards the finish line. Each round <br>
+                            offers a fun way to test your skills and knowledge. However, be attentive—if you get an answer wrong, it's <br>
+                            game over, and you'll need to start again to reach the finish line and win.<br><br>
+                        
+                            Throughout the game, you'll be accompanied by charming and animated pups that add an extra layer of fun to <br>
+                            each challenge. Each round presents a unique set of questions designed to match your chosen topic, making <br>
+                            learning engaging and interactive. As you progress, you’ll encounter colorful visuals and cheerful sounds <br>
+                            that keep the excitement high. 
+                        </p>
+                    </div>
+                    
+                </div>
+
+                <div class="gallery1">
+                <div class="descriptionButton view2 viewDescription" onclick="showDescription(event)">DESCRIPTION</div>
+                <button class="galleryButton view2 viewGallery" onclick="showGallery(event)"
+                    style="color: #fff7fa;">GALLERY</button>
+
+                    <div class="galleryLabel">
+                        <h1>Main Page</h1>
+                    </div>
+                    <div class="galleryImage">
+                        <img src="game4_1.jpg" style="width: 470px;">
+                    </div>
+                    <div class="galleryLabel" style="left: 550px;">
+                        <h1>Sample Page</h1>
+                    </div>
+                    <div class="galleryImage" style="left: 550px;">
+                        <img src="game4_2.jpg" style="width: 330px;">
+                        <img src="game4_3.jpg" style="width: 330px;">
+                        <img src="game4_4.jpg" style="position: absolute; width: 330px; top: 220px; left: 0px;">
+                        <img src="game4_5.jpg" style="position: absolute; width: 330px; top: 220px; left: 335px;">
+                    </div>
+
+                    
+                </div>
+
+                </div>
+                
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="background-section section5" id="section5">
+    <div>
+        <h1 style="position: absolute; top: 60px; left: 370px; font-size: 40px; font-family: font9;">
+            CONTACT ME.
+        </h1>
+    </div>
+    <div>
+        <img src="address.png" style="position: absolute; top: 140px; left: 190px; width: 80px;">
+        <img src="phone.png" style="position: absolute; top: 140px; left: 490px; width: 80px;">
+        <img src="email.png" style="position: absolute; top: 140px; left: 790px; width: 80px;">
+    </div>
+
+    <div class="contacts">68 Blk 3 Daan Tubo, U.P Campus, <br>Quezon City, Metro Manila</div>
+    <div class="contacts" style="left: 490px;">0915 139 7490</div>
+    <div class="contacts" style="left: 720px;">regaspe.marielleysabela@ue.edu.ph <br>
+    regaspemarielle@gmail.com</div>
+
+    <div>
+        <h1 style="position: absolute; top: 330px; left: 50px; font-family: font9; font-size: 40px; color: #fff7fa;">
+            SEND A MESSAGE.
+        </h1>
+    </div>
+
+    <div style="position: absolute; top: 90px; right: 45px;">
+        <img src="ysaName.png" style="width: 140px; height: 140px;">
+    </div>
+
+    <div>
+        <a href="https://www.facebook.com/ysa.bela.923724?mibextid=LQQJ4d">
+            <img src="facebook2.png" style="position: absolute; width: 40px; height: 40px; top: 270px; right: 90px;">
+        </a></div>
+    <div><a href="https://www.instagram.com/ysabelaaa.r?igsh=ZzBsdXA1OTdxaDFj&utm_source=qr">
+            <img src="instagram2.png" style="position: absolute; width: 40px; height: 40px; top: 340px; right: 90px;">
+        </a></div>
+    <div>
+        <a href="www.linkedin.com/in/marielle-ysabela-regaspe-45b842325">
+            <img src="linkedIn1.png" style="position: absolute; width: 40px; height: 40px; top: 410px; right: 90px;">
+        </a></div>
+    
+        <div style="position: absolute; top: 380px; left: 760px;">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.159124486015!2d121.07078680452597
+            !3d14.646907103957371!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397b77b62e68487%3A0xb38352f8ee
+            8c4ff0!2sDaan%20Tubo%2C%20Diliman%2C%20Quezon%20City%2C%201800%20Metro%20Manila!5e0!3m2!1sen!2sph!4v172485
+            7032581!5m2!1sen!2sph" 
+            width="300" 
+            height="300" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div>
+            <form  method="post" class="contact-form">
+                <div class="input-container" id="name-container">
+                    <input type="text" id="name" name="name" placeholder=" " required>
+                    <label for="name">Name</label>
+                </div>
+                
+                <div class="input-container" id="email-container">
+                    <input type="email" id="email" name="email" placeholder=" " required>
+                    <label for="email">Email</label>
+                </div>
+                
+                <div class="input-container" id="subject-container">
+                    <input type="text" id="subject" name="subject" placeholder=" " required>
+                    <label for="subject">Subject</label>
+                </div>
+                
+                <div class="input-container" id="message-container">
+                    <textarea id="message" name="message" placeholder=" " required></textarea>
+                    <label for="message">Message</label>
+                </div>
+                
+                <input type="submit" value="Send">
+            </form>
+        </div>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+function showAbout() {
+    console.log("About button clicked"); 
+    document.querySelector('.line2').style.left = '200px';
+    document.querySelector('.text3').style.display = 'block';
+    document.querySelector('.text4').style.display = 'block';
+    document.querySelector('.text5').style.display = 'none';
+}
+
+function showSkills() {
+    console.log("Skills button clicked"); 
+    document.querySelector('.line2').style.left = '450px';
+    document.querySelector('.text3').style.display = 'none';
+    document.querySelector('.text4').style.display = 'none';
+    document.querySelector('.text5').style.display = 'block';
+}
+
+function showGallery(event) {
+    const carouselItem = event.target.closest('.carousel-item'); 
+    const rectangleLabel = carouselItem.querySelector('.rectangleLabel'); 
+    rectangleLabel.style.left = '245px'; 
+    carouselItem.querySelector('.description1').style.display = 'none';
+    carouselItem.querySelector('.gallery1').style.display = 'block';
+}
+
+function showDescription(event) {
+    const carouselItem = event.target.closest('.carousel-item'); 
+    const rectangleLabel = carouselItem.querySelector('.rectangleLabel'); 
+    rectangleLabel.style.left = '40px';  
+    carouselItem.querySelector('.description1').style.display = 'block';
+    carouselItem.querySelector('.gallery1').style.display = 'none';
+}
+
+
+document.querySelector('.about1').addEventListener('click', showAbout);
+document.querySelector('.skills1').addEventListener('click', showSkills);
+document.querySelectorAll('.view2').forEach(button => {
+    button.addEventListener('click', function() {
+        if (this.classList.contains('viewGallery')) {
+            showGallery.call(this, event);
+        } else if (this.classList.contains('viewDescription')) {
+            showDescription.call(this, event);
+        }
+    });
+});
+
+</script>
+
+</body>
+</html>
